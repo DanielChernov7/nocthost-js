@@ -1,0 +1,47 @@
+{
+  "name": "nocthost",
+  "version": "0.1.0",
+  "description": "Official JavaScript and TypeScript client for the NoctHost API: deploy and manage hourly-billed cloud servers from one prepaid balance.",
+  "keywords": ["nocthost", "vps", "cloud", "servers", "api", "sdk", "gpu", "hosting"],
+  "homepage": "https://nocthost.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielChernov7/nocthost-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DanielChernov7/nocthost-js/issues"
+  },
+  "license": "MIT",
+  "author": "Nocthost OÜ",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md"],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}
