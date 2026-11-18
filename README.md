@@ -1,8 +1,8 @@
 # nocthost
 
 Official JavaScript and TypeScript client for the [NoctHost](https://nocthost.com) API.
-Deploy and manage hourly-billed cloud servers on major clouds such as Vultr, Hetzner,
-Linode and OVHcloud from one account and one prepaid balance.
+Deploy and manage hourly-billed cloud servers on Hetzner, Vultr,
+DigitalOcean, Linode and OVHcloud from one account and one prepaid balance.
 
 - Zero runtime dependencies, uses the global `fetch`
 - ESM and CommonJS builds with bundled type definitions
